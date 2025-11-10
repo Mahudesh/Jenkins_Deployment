@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Jenkins automatically checks out SCM, so no need for extra git command
-                echo 'Repository checked out automatically done.'
+                echo 'Repository checked out automatically done by Mahudesh.'
             }
         }
 
