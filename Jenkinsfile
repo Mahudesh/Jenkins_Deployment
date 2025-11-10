@@ -1,19 +1,25 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Mahudesh/Jenkins_Deployment.git'
+                // Jenkins automatically checks out SCM, so no need for extra git command
+                echo 'Repository checked out automatically.'
             }
         }
-        stage('Build') {
+
+        stage('Setup Python') {
             steps {
-                sh 'npm install'
+                // Ensure Python3 is installed and available
+                sh 'python3 --version'
             }
         }
-        stage('Run') {
+
+        stage('Run Python Script') {
             steps {
-                sh 'npm start'
+                echo 'Running hello.py...'
+                sh 'python3 hello.py'
             }
         }
     }
